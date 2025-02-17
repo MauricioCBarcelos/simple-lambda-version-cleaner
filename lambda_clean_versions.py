@@ -23,11 +23,11 @@ if __name__ == "__main__":
     lambda_service = LambdaService(boto_session)
 
     lambdas = lambda_service.get_lambdas()
-    total_lambdas = len(lambdas)
-    LOGGER.info("Total Lambdas: %s", total_lambdas)
+    total_lambda_functions = len(lambdas)
+    LOGGER.info("Total Lambdas: %s", total_lambda_functions)
 
     for index, lambda_name in enumerate(lambdas, 1):
-        LOGGER.info("Processing lambda %s of %s", index, total_lambdas)
+        LOGGER.info("Processing lambda %s of %s", index, total_lambda_functions)
         try:
             LOGGER.info("Lambda: %s", lambda_name)
             lambda_versions = lambda_service.get_lambda_versions(lambda_name)
